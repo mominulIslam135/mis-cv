@@ -37,7 +37,7 @@
 
 <header class="navbar" id="navbar">
   <nav class="nav-inner">
-    <a href="#home" class="brand">MP<span class="brand-dot">.</span></a>
+    <a href="#home" class="brand">MIP<span class="brand-dot">.</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
       <li><a href="#about" class="nav-link" data-section="about">About</a></li>
@@ -115,10 +115,10 @@
       </div>
       <div class="stat">
         <span class="stat-num" data-count="260" data-suffix="K+">0</span>
-        <span class="stat-label">Customers Served</span>
+        <span class="stat-label">Customers + Meters Served</span>
       </div>
       <div class="stat">
-        <span class="stat-num" data-count="3" data-suffix="">0</span>
+        <span class="stat-num" data-count="5" data-suffix="">0</span>
         <span class="stat-label">Platforms Shipped</span>
       </div>
       <div class="stat">
@@ -136,14 +136,14 @@
     </div>
     <div class="about-grid">
       <p class="about-text" data-aos="fade-up" data-aos-delay="100">
-        I'm a Senior Application Engineer with <strong>4+ years</strong> of experience building enterprise
-        software for the utility and energy sector. I'm expert across the full
-        <strong>Advanced Metering Infrastructure (AMI)</strong> stack — Head-End Systems (HES), Oracle Meter
-        Data Management (MDM), and C2M billing operations. I architect, build, deploy, and maintain
-        production systems serving <strong>2.6 lakh+ (260,000+) customers</strong> across DPDC and BREB AMI
-        projects. My work spans full-stack web, cross-platform mobile, automation bots, CI/CD pipelines,
-        system architecture, and AI-assisted development workflows — with a strong track record leading
-        stack migrations and collaborating with internal and external utility stakeholders.
+        I work across the full <strong>Advanced Metering Infrastructure (AMI)</strong> stack — Head-End
+        Systems (HES), Oracle Meter Data Management (MDM), and C2M billing operations — end to end: database,
+        backend API, web dashboard, and mobile field app. Day to day that means designing schemas against
+        Oracle CC&amp;B/CISADM, shipping REST APIs, building Vue 3 dashboards and Flutter apps, and wiring up the
+        automation (Telegram/Teams bots, cron jobs, email reports) that keeps utility ops teams ahead of
+        billing and metering issues instead of chasing them. I've led two stack migrations (PHP → Node.js,
+        Vue 2 → Vue 3/TypeScript) and work directly with both internal engineering and external utility
+        stakeholders at DPDC and BREB.
       </p>
       <div class="about-cards" data-aos="fade-up" data-aos-delay="200">
         <div class="mini-card">
@@ -180,12 +180,12 @@
       <div class="skill-card" data-aos="fade-up" data-aos-delay="50">
         <div class="skill-icon">🛠️</div>
         <h3>Backend</h3>
-        <div class="chip-row"><span>Node.js</span><span>Express 4/5</span><span>Sequelize ORM</span><span>REST APIs</span><span>JWT</span><span>Bcrypt</span><span>Winston</span><span>Resend</span></div>
+        <div class="chip-row"><span>Node.js</span><span>Express 4/5</span><span>Sequelize ORM</span><span>REST APIs</span><span>Socket.io</span><span>JWT</span><span>Zod</span><span>Bcrypt</span><span>Winston</span><span>Resend</span><span>Jest</span></div>
       </div>
       <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
         <div class="skill-icon">🎨</div>
         <h3>Frontend</h3>
-        <div class="chip-row"><span>Vue 3</span><span>Vite</span><span>Pinia</span><span>Axios</span><span>Tailwind</span><span>Bootstrap 5</span><span>Heroicons</span></div>
+        <div class="chip-row"><span>Vue 3</span><span>Vite</span><span>Pinia</span><span>Chart.js</span><span>Axios</span><span>Tailwind</span><span>Bootstrap 5</span><span>Heroicons</span><span>vue-i18n</span></div>
       </div>
       <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
         <div class="skill-icon">📲</div>
@@ -200,7 +200,7 @@
       <div class="skill-card" data-aos="fade-up" data-aos-delay="250">
         <div class="skill-icon">⚡</div>
         <h3>Utility Domain</h3>
-        <div class="chip-row"><span>AMI</span><span>HES</span><span>Oracle MDM</span><span>C2M</span><span>Smart Metering</span><span>Utility Billing</span><span>RC/DC</span><span>NOCS</span><span>BREB</span><span>DPDC</span></div>
+        <div class="chip-row"><span>AMI</span><span>HES</span><span>Oracle MDM</span><span>Oracle CC&amp;B</span><span>C2M</span><span>Smart Metering</span><span>Utility Billing</span><span>RC/DC</span><span>NOCS</span><span>OTP/SMS Gateway</span><span>BREB</span><span>DPDC</span></div>
       </div>
       <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
         <div class="skill-icon">🚀</div>
@@ -240,16 +240,18 @@
           </div>
           <p class="tl-lead">Leads full-stack architecture and development for AMI platforms serving 2.6 lakh+ customers across DPDC and BREB.</p>
           <ul class="tl-bullets">
-            <li>Architects and ships <strong>DPDC AMI Dashboard</strong> — live RC/DC monitoring, NOCS management, bank-wise payment reconciliation, 3-tier data recovery with local SQLite meter store.</li>
+            <li>Architects and ships <strong>DPDC AMI Dashboard</strong> — live RC/DC monitoring, NOCS management, bank-wise payment reconciliation, an automated Missing Reads Finder, and 3-tier data recovery with local SQLite meter store.</li>
             <li>Architects and ships <strong>OTBL CMS</strong> — Jira-style ticketing, 5-level RBAC, 300k+ row Excel imports, CMO API integration with external SQL Server.</li>
             <li>Builds <strong>CMO Mobile App</strong> — Flutter offline-first with ML Kit OCR meter scanning, GPS/map, Firebase FCM push, self-hosted APK updates.</li>
+            <li>Leads the <strong>BREB Smart Meter customer portal</strong> (Flutter app + web, OTP auth, Oracle CC&amp;B integration) and the <strong>BREB CMO → MDMS migration platform</strong> (offline-first Flutter field app, real-time Vue 3 admin-web).</li>
+            <li>Designs and ships REST APIs across every platform — CMO batch sync, BREB customer/admin APIs, and CMS integrations — covering auth, file upload, reporting, and real-time updates.</li>
             <li>Designs automation: Telegram bots, MS Teams hourly batch reports with stuck-batch alerts, scheduled email summaries.</li>
             <li>Sets up CI/CD, PM2 process management, Linux deployments, scheduled cron jobs.</li>
             <li>Operates Oracle MDM and C2M for batch processing and billing reconciliation; coordinates with internal and external DPDC/BREB stakeholders.</li>
             <li>Applies AI tools (Claude, ChatGPT, Gemini) for design review, code review, and workflow automation.</li>
           </ul>
           <div class="tl-stack">
-            <span>Node.js</span><span>Express</span><span>Vue 3</span><span>TypeScript</span><span>Flutter</span><span>Oracle</span><span>MS SQL</span><span>PostgreSQL</span><span>SQLite</span><span>Sequelize</span><span>PM2</span><span>Linux</span><span>Telegram Bot API</span>
+            <span>Node.js</span><span>Express</span><span>Vue 3</span><span>TypeScript</span><span>Flutter</span><span>Oracle</span><span>MS SQL</span><span>PostgreSQL</span><span>SQLite</span><span>Sequelize</span><span>Socket.io</span><span>PM2</span><span>Linux</span><span>Telegram Bot API</span>
           </div>
         </div>
       </div>
@@ -313,9 +315,11 @@
         <p class="project-sub">Full-Stack AMI Operations Platform</p>
         <p class="project-desc">
           Production AMI platform serving DPDC ops teams. Live RC/DC command tracking with NOCS breakdown,
-          batch monitoring with auto-alerts, bank-wise payment reconciliation, bill stop management with PDF
-          data parsing, and customer billing history. Automated multi-channel reporting via MS Teams and
-          Telegram, with a 3-tier data recovery model. Serves <strong>2.6 lakh+ customers</strong>.
+          batch monitoring with auto-alerts, bank-wise payment reconciliation, and customer billing history.
+          Includes an automated <strong>Missing Reads Finder</strong> that cross-checks imported meter-read
+          PDFs/HES files against billing records to flag unread meters, feeding straight into a Resolved Bill
+          Stop workflow. Automated multi-channel reporting via MS Teams and Telegram, with a 3-tier data
+          recovery model. Serves <strong>2.6 lakh+ customers</strong>.
         </p>
         <div class="project-stack">
           <span>Node.js</span><span>Express 4</span><span>Vue 3</span><span>Vite</span><span>PostgreSQL</span><span>Oracle CISADM</span><span>SQLite</span><span>Sequelize</span><span>PM2</span><span>Telegram Bot API</span>
@@ -354,6 +358,43 @@
         </div>
       </article>
 
+      <article class="project-card tilt" data-aos="fade-up" data-aos-delay="0">
+        <div class="project-glow"></div>
+        <div class="project-icon">🔌</div>
+        <h3>BREB Smart Meter — Customer Portal</h3>
+        <p class="project-sub">Customer Self-Service App + Web</p>
+        <p class="project-desc">
+          OTP-authenticated self-service portal for BREB electricity customers — one Flutter codebase shipped
+          to Android and web. Customers track live meter usage (today / week / month kWh with hourly
+          breakdown), day-wise and monthly billing, and recharge history across multiple linked accounts,
+          with dark mode and Bangla/English support. Backend reads billing data straight from the Oracle
+          CC&amp;B/C2M database (strictly read-only) with PostgreSQL for OTP and account state, and Banglalink
+          SMS for OTP delivery. Paired with a Vue 3 ops dashboard for real-time RC/DC monitoring, PBS-scoped
+          role-based access, and payment / recharge / tariff reporting.
+        </p>
+        <div class="project-stack">
+          <span>Flutter</span><span>Dio</span><span>go_router</span><span>Node.js</span><span>Express 4</span><span>Oracle CC&amp;B</span><span>PostgreSQL</span><span>JWT</span><span>Banglalink SMS API</span><span>Vue 3</span><span>Pinia</span><span>Tailwind</span>
+        </div>
+      </article>
+
+      <article class="project-card tilt" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-glow"></div>
+        <div class="project-icon">🔄</div>
+        <h3>BREB CMO → MDMS Migration Platform</h3>
+        <p class="project-sub">Data Migration Admin Portal + Mobile App</p>
+        <p class="project-desc">
+          End-to-end platform migrating BREB's legacy Change-Meter-Owner (CMO) records into Oracle MDMS. A
+          Flutter field app captures meter installations with ML Kit OCR reading, barcode/QR scanning, GPS
+          geotagging, and full offline-first customer search across a 70+ field schema — so field agents keep
+          working without connectivity, syncing once back online. A Vue 3 + TypeScript admin-web (real-time
+          via Socket.io, Chart.js analytics, Bangla/English i18n) tracks migration records and approvals.
+          Backend on Node.js/TypeScript + Express + PostgreSQL with JWT auth and an automated Jest test suite.
+        </p>
+        <div class="project-stack">
+          <span>Flutter</span><span>Google ML Kit</span><span>SQLite</span><span>Node.js</span><span>TypeScript</span><span>Express</span><span>Sequelize</span><span>PostgreSQL</span><span>Socket.io</span><span>Vue 3</span><span>Chart.js</span><span>JWT</span><span>Jest</span>
+        </div>
+      </article>
+
     </div>
   </section>
 
@@ -386,7 +427,7 @@
 </main>
 
 <footer class="footer">
-  <p>© <span id="year"></span> MD Mominul Islam Pramanik. Built with HTML, CSS &amp; vanilla JS.</p>
+  <p>© <span id="year"></span> MD Mominul Islam Pramanik.</p>
   <p class="footer-loc">Dhaka, Bangladesh</p>
 </footer>
 
