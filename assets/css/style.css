@@ -1,9 +1,10 @@
 /* ==================== Design tokens ==================== */
 :root{
   --bg: #0a0f1e;
-  --bg-soft: #0d1426;
-  --card: #121b32;
-  --card-border: rgba(255,255,255,0.08);
+  --bg-soft: #0a0f1e;
+  --card: #141f3a;
+  --card-2: #182449;
+  --card-border: rgba(255,255,255,0.09);
   --text: #e7ecf7;
   --text-dim: #97a2bb;
   --accent: #3b82f6;
@@ -16,9 +17,10 @@
 }
 :root[data-theme="light"]{
   --bg: #f5f7fb;
-  --bg-soft: #ffffff;
+  --bg-soft: #eef2f9;
   --card: #ffffff;
-  --card-border: rgba(15,23,42,0.08);
+  --card-2: #ffffff;
+  --card-border: rgba(15,23,42,0.09);
   --text: #101728;
   --text-dim: #566079;
   --shadow: 0 20px 45px -25px rgba(15,23,42,0.25);
@@ -122,7 +124,14 @@ strong{color:var(--text); font-weight:600;}
 
 /* ==================== Layout helpers ==================== */
 .section{max-width:1180px; margin:0 auto; padding:120px 24px 20px;}
-.section.alt{background:var(--bg-soft); max-width:none; padding-left:0; padding-right:0;}
+.section.alt{
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 0%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 85% 100%, color-mix(in srgb, var(--accent-2) 6%, transparent), transparent 70%),
+    var(--bg-soft);
+  max-width:none; padding-left:0; padding-right:0;
+  border-top:1px solid var(--card-border); border-bottom:1px solid var(--card-border);
+}
 .section.alt > *{max-width:1180px; margin-left:auto; margin-right:auto; padding-left:24px; padding-right:24px;}
 .section-head{text-align:center; margin-bottom:52px;}
 .tag{
@@ -175,14 +184,18 @@ strong{color:var(--text); font-weight:600;}
 @keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);}}
 @keyframes spin{to{transform:rotate(360deg);}}
 .badge{
-  position:absolute; padding:7px 13px; border-radius:999px; font-size:.76rem; font-weight:600;
-  background:var(--card); border:1px solid var(--card-border); box-shadow:var(--shadow); color:var(--text);
+  position:absolute; width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:#fff; border:1px solid var(--card-border); box-shadow:var(--shadow);
   animation:float 5s ease-in-out infinite;
 }
-.badge-1{top:6%; left:-10%; animation-delay:.2s;}
-.badge-2{top:60%; right:-14%; animation-delay:.6s;}
-.badge-3{bottom:2%; left:6%; animation-delay:1s;}
-.badge-4{top:12%; right:-8%; animation-delay:1.4s;}
+.badge svg{width:24px; height:24px; display:block;}
+.badge-1{top:4%; left:-9%; animation-delay:.2s;}
+.badge-2{top:56%; right:-13%; animation-delay:.6s;}
+.badge-3{bottom:0%; left:4%; animation-delay:1s;}
+.badge-4{top:10%; right:-7%; animation-delay:1.4s;}
+.badge-5{bottom:12%; right:-9%; animation-delay:1.8s;}
+.badge-6{top:36%; left:-13%; animation-delay:2.2s;}
 
 .scroll-cue{position:absolute; bottom:26px; left:50%; transform:translateX(-50%);}
 .scroll-cue span{
@@ -223,17 +236,35 @@ strong{color:var(--text); font-weight:600;}
 /* ==================== Skills ==================== */
 .skills-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
 .skill-card{
-  background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius);
-  padding:24px; transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  position:relative; background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius);
+  padding:26px 24px 24px; overflow:hidden;
+  box-shadow:0 1px 0 0 color-mix(in srgb, var(--text) 4%, transparent) inset;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease, background .3s ease;
 }
-.skill-card:hover{transform:translateY(-6px); box-shadow:var(--shadow); border-color:var(--accent);}
-.skill-icon{font-size:1.6rem; margin-bottom:10px;}
-.skill-card h3{font-size:1rem; margin-bottom:12px;}
+.skill-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--accent-grad); opacity:.55; transition:opacity .3s ease;
+}
+.skill-card:hover{transform:translateY(-6px); box-shadow:var(--shadow); border-color:transparent;}
+.skill-card:hover::before{opacity:1;}
+.skill-icon{
+  width:42px; height:42px; border-radius:12px; margin-bottom:14px;
+  display:flex; align-items:center; justify-content:center;
+  background:color-mix(in srgb, var(--accent) 13%, transparent);
+  color:var(--accent-2);
+}
+.skill-icon svg{width:22px; height:22px;}
+.skill-card h3{font-size:1rem; margin-bottom:12px; letter-spacing:.01em;}
 .chip-row{display:flex; flex-wrap:wrap; gap:7px;}
 .chip-row span{
-  font-size:.76rem; padding:5px 10px; border-radius:999px;
-  background:color-mix(in srgb, var(--accent) 12%, transparent);
-  color:var(--accent-2); border:1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  font-size:.76rem; padding:5px 10px; border-radius:999px; font-weight:500;
+  background:color-mix(in srgb, var(--text) 5%, transparent);
+  color:var(--text-dim); border:1px solid var(--card-border);
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+.skill-card:hover .chip-row span{
+  background:color-mix(in srgb, var(--accent) 10%, transparent);
+  color:var(--accent-2); border-color:color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
 /* ==================== Timeline ==================== */
@@ -377,10 +408,13 @@ strong{color:var(--text); font-weight:600;}
   .nav-cta{display:none;}
   .hamburger{display:flex;}
   .skills-grid{grid-template-columns:1fr;}
-  .badge{font-size:.68rem; padding:5px 10px;}
+  .badge{width:34px; height:34px;}
+  .badge svg{width:18px; height:18px;}
   .badge-1{left:0;}
   .badge-2{right:0;}
   .badge-4{right:0;}
+  .badge-5{right:0;}
+  .badge-6{left:0;}
 }
 @media (max-width: 480px){
   .stats-inner{grid-template-columns:repeat(2,1fr); gap:20px;}
